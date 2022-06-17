@@ -14,5 +14,15 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', function () {
-    return view('welcome');
+    return view('layouts.main');
+});
+//Route::get('/', \App\Http\Controllers\Controller::class );
+
+Route::group(['prefix' => 'admin'], function () {
+    Route::group(['prefix' => 'categories'], function () {
+        Route::get('/', \App\Http\Controllers\Admin\Category\IndexController::class)->name('category.index');
+        Route::get('/create', \App\Http\Controllers\Admin\Category\CreateController::class)->name('category.create');
+        Route::post('/', \App\Http\Controllers\Admin\Category\StoreController::class)->name('category.store');
+        Route::get('/{category}', \App\Http\Controllers\Admin\Category\ShowController::class)->name('category.show');
+    });
 });
