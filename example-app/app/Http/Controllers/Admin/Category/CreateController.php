@@ -9,8 +9,8 @@ class CreateController extends Controller
 {
     public function __invoke()
     {
-        $categoriesParent = Category::where('parent_id', '=', 0 )->get();
-        $categoriesChild = Category::where('parent_id', '!=', 0 )->get();
+        $categoriesParent = Category::where('parent_id', '=', 0)->get();
+        $categoriesChild = Category::where('parent_id', '!=', 0)->get();
 
         return view('category.create', compact('categoriesParent', 'categoriesChild'));
     }

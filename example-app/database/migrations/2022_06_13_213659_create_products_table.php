@@ -22,9 +22,19 @@ return new class extends Migration
             $table->integer('price_out');
             $table->string('unit');
             $table->integer('amount');
-            $table->integer('category_id');
-            $table->integer('brand_id');
+
+            $table->unsignedBigInteger('category_id');
+            $table->index('category_id', 'post_category_idx');
+            $table
+                ->foreign('category_id', 'post)category_fk')
+                ->on('categories')
+                ->references('id')
+                ->onDelete('cascade');
+
+            $table->unsignedBigInteger('brand_id');
             $table->timestamps();
+
+
         });
     }
 

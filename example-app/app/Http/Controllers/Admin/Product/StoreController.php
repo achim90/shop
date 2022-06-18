@@ -3,7 +3,7 @@
 namespace App\Http\Controllers\Admin\Product;
 
 use App\Http\Controllers\Controller;
-use App\Http\Requests\Category\StoreRequest;
+use App\Http\Requests\Product\StoreRequest;
 use App\Models\Category;
 
 class StoreController extends Controller
