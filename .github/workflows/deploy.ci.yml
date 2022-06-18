@@ -12,5 +12,4 @@ jobs:
           host: ${{ secrets.HOST }}
           username: ${{ secrets.USERNAME }}
           key: ${{ secrets.SHOP_SERVER }}
-          port: ${{ secrets.PORT }}
           script: sh nat_vinograd.sh
