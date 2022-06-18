@@ -33,7 +33,7 @@ jobs:
         working-directory: "example-app"
         env:
           DATABASE_URL: sqlite:///%kernel.project_dir%/data/database.sqlite
-        run: php bin/phpunit
+        run: ./vendor/bin/phpunit
 
   code-logic-condition:
     runs-on: ubuntu-20.04
