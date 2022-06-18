@@ -6,7 +6,7 @@
         <div class="container-fluid">
             <div class="row mb-2">
                 <div class="col-sm-6">
-                    <h1 class="m-0">Создание новой категории</h1>
+                    <h1 class="m-0">Создание продукта</h1>
                 </div>
                 <!-- /.col -->
                 <div class="col-sm-6">
@@ -24,9 +24,21 @@
         <div class="container-fluid">
             <!-- Small boxes (Stat box) -->
             <div class="row">
-                <form action="{{ route('category.store') }}" method="post">
+                <form action="{{ route('product.store') }}" method="post">
                     @csrf
 
+                    <div class="form-group">
+                        <input type="text" name="title" class="form-control" placeholder="наименование">
+                    </div>
+                    <div class="form-group">
+                        <input type="text" name="title" class="form-control" placeholder="входящая цена">
+                    </div>
+                    <div class="form-group">
+                        <input type="text" name="title" class="form-control" placeholder="    цена">
+                    </div>
+                    <div class="form-group">
+                        <input type="text" name="title" class="form-control" placeholder="входящая цена">
+                    </div>
                     <div class="form-group">
                         <input type="text" name="title" class="form-control" placeholder="наименование">
                     </div>
