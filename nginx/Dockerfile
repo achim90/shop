@@ -1,7 +1,0 @@
-FROM nginx:1.15-alpine
-
-COPY ./nginx/conf.d/app.conf /etc/nginx/conf.d/default.conf
-
-WORKDIR /app
-
-COPY ./example-app/public ./public
