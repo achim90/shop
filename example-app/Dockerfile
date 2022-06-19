@@ -4,4 +4,4 @@ COPY ./app.conf /etc/nginx/conf.d/default.conf
 
 WORKDIR /app
 
-COPY ./public ./public
+COPY ./ ./
