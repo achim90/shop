@@ -33,18 +33,18 @@ jobs:
           push: true
           tags: akimmalidocker/nginx:latest
 
-#  build:
-#    name: Deploy
-#    runs-on: ubuntu-latest
-#    steps:
-#      - name: executing remote ssh commands using ssh key
-#        uses: appleboy/ssh-action@master
-#        with:
-#          host: ${{ secrets.HOST }}
-#          username: ${{ secrets.USERNAME }}
-#          key: ${{ secrets.SHOP_SERVER }}
-#          port: ${{ secrets.PORT }}
-#          script: |
-#            docker-compose build
-#            docker-compose up -d
+  build:
+    name: Deploy
+    runs-on: ubuntu-latest
+    steps:
+      - name: executing remote ssh commands using ssh key
+        uses: appleboy/ssh-action@master
+        with:
+          host: ${{ secrets.HOST }}
+          username: ${{ secrets.USERNAME }}
+          key: ${{ secrets.SHOP_SERVER }}
+          port: ${{ secrets.PORT }}
+          script: |
+            docker-compose build
+            docker-compose up -d
             
