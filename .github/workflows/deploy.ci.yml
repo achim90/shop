@@ -38,6 +38,6 @@ jobs:
           key: ${{ secrets.SHOP_SERVER }}
           port: ${{ secrets.PORT }}
           script: |
-            docker pull akimmalidocker/shop:latest
-            docker run akimmalidocker/shop:latest
+            docker-compose build 
+            docker-compose up -d
             
