@@ -9,8 +9,8 @@ class IndexController extends Controller
 {
     public function __invoke()
     {
-        $products = Product::table('category')->get();
-        return $products;
-//        return view('product.index', compact('products'));
+        $products = Product::all();
+
+        return view('product.index', compact('products'));
     }
 }

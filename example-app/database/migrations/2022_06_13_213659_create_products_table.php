@@ -32,6 +32,7 @@ return new class extends Migration
                 ->onDelete('cascade');
 
             $table->unsignedBigInteger('brand_id');
+
             $table->timestamps();
 
 
