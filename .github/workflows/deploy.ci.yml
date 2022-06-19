@@ -19,22 +19,23 @@ jobs:
           username: ${{ secrets.DOCKERHUB_USERNAME }}
           password: ${{ secrets.DOCKERHUB_TOKEN }}
 
-#      - name: Build and push php
-#        uses: docker/build-push-action@v3
-#        with:
-#          context: .
-#          push: true
-#          tags: akimmalidocker/shop:latest
+      - name: Build and push php
+        uses: docker/build-push-action@v3
+        with:
+          context: .
+          push: true
+          tags: akimmalidocker/shop:latest
 
-#      - name: Build and push nginx
-#        uses: docker/build-push-action@v3
-#        with:
-#          context: .
-#          file: ./example-app/Dockerfile
-#          push: true
-#          tags: akimmalidocker/nginx:latest
+      - name: Build and push nginx
+        uses: docker/build-push-action@v3
+        with:
+          context: .
+          file: ./example-app/Dockerfile
+          push: true
+          tags: akimmalidocker/nginx:latest
 
   build:
+    needs: docker_build
     name: Deploy
     runs-on: ubuntu-latest
     steps:
