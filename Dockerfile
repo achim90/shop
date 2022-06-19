@@ -44,6 +44,8 @@ RUN useradd -u 1000 -ms /bin/bash -g www www
 # Copy existing application directory contents
 COPY . /var/www
 
+RUN composer install -q --no-ansi --no-interaction --no-scripts --no-progress --prefer-dist
+
 # Copy existing application directory permissions
 COPY --chown=www:www . /var/www
 
