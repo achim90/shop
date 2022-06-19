@@ -19,25 +19,32 @@ jobs:
           username: ${{ secrets.DOCKERHUB_USERNAME }}
           password: ${{ secrets.DOCKERHUB_TOKEN }}
 
-      - name: Build and push
+      - name: Build and push php
         uses: docker/build-push-action@v3
         with:
           context: .
           push: true
           tags: akimmalidocker/shop:latest
 
-  build:
-    name: Deploy
-    runs-on: ubuntu-latest
-    steps:
-      - name: executing remote ssh commands using ssh key
-        uses: appleboy/ssh-action@master
+      - name: Build and push nginx
+        uses: docker/build-push-action@v3
         with:
-          host: ${{ secrets.HOST }}
-          username: ${{ secrets.USERNAME }}
-          key: ${{ secrets.SHOP_SERVER }}
-          port: ${{ secrets.PORT }}
-          script: |
-            docker-compose build 
-            docker-compose up -d
+          context: ./nginx
+          push: true
+          tags: akimmalidocker/nginx:latest
+
+#  build:
+#    name: Deploy
+#    runs-on: ubuntu-latest
+#    steps:
+#      - name: executing remote ssh commands using ssh key
+#        uses: appleboy/ssh-action@master
+#        with:
+#          host: ${{ secrets.HOST }}
+#          username: ${{ secrets.USERNAME }}
+#          key: ${{ secrets.SHOP_SERVER }}
+#          port: ${{ secrets.PORT }}
+#          script: |
+#            docker-compose build
+#            docker-compose up -d
             
