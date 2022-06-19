@@ -4,4 +4,4 @@ COPY ./example-app/app.conf /etc/nginx/conf.d/default.conf
 
 WORKDIR /var/www
 
-COPY . /var/www
+#COPY . /var/www
