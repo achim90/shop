@@ -20,11 +20,11 @@
     <div class="col-12">
         <div class="card">
             <div class="card-header">
-                <form action="{{ route('category.delete', $category->id) }}" method="post">
+                <form action="{{ route('product.delete', $product->id) }}" method="post">
                     @csrf
                     @method('delete')
-                    <input type="submit" class="btn  bg-gradient-danger btn-sm" >
-                    <a class="btn  bg-gradient-warning btn-sm" href="{{ route('category.edit', $category->id) }}">Редоктировать</a>
+                    <input type="submit" class="btn  bg-gradient-danger btn-sm">
+                    <a class="btn  bg-gradient-warning btn-sm" href="{{ route('product.edit', $product->id) }}">Редоктировать</a>
                 </form>
 
 
@@ -35,25 +35,34 @@
                     <thead>
                     <tr>
                         <th>ID</th>
-                        <th>Имя</th>
-                        <th>Date</th>
-                        <th>Parent</th>
-
+                        <th>Товар</th>
+                        <th>Цена закупочная</th>
+                        <th>Наценка%</th>
+                        <th>Цена ОПТ</th>
+                        <th>Цена розница</th>
+                        <th>Ед. измерения</th>
+                        <th>Остаток</th>
+                        <th>Категория</th>
+                        <th>Бренд</th>
+                        <th>Дата создания </th>
+                        <th>Дата обновления</th>
                     </tr>
                     </thead>
                     <tbody>
                     <tr>
-                        <td>{{ $category->id }}</td>
-                        <td>{{ $category->title }}</td>
-                        <td>{{ $category->updated_at }}</td>
-                        <td>
-                            @if($category->parent_id != 0)
-                                {{$category->parent->title}}
-                            @endif
-                        </td>
-
+                        <td>{{ $product->id }}</td>
+                        <td>{{ $product->title}}</td>
+                        <td>{{ $product->price_in }}</td>
+                        <td>{{ $product->percent }}</td>
+                        <td>{{ $product->price_wholesale }}</td>
+                        <td>{{ $product->price_out }}</td>
+                        <td>{{ $product->unit }}</td>
+                        <td>{{ $product->amount }}</td>
+                        <td>{{ $product->category_id }}</td>
+                        <td>{{ $product->brand_id }}</td>
+                        <td>{{ $product->created_at }}</td>
+                        <td>{{ $product->updated_at }}</td>
                     </tr>
-
                     </tbody>
                 </table>
             </div>

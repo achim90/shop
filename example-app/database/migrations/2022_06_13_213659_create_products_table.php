@@ -18,8 +18,8 @@ return new class extends Migration
             $table->string('title');
             $table->integer('price_in');
             $table->integer('percent');
-            $table->integer('price_wholesale');
-            $table->integer('price_out');
+            $table->integer('price_wholesale')->nullable();
+            $table->integer('price_out')->nullable();
             $table->string('unit');
             $table->integer('amount');
 

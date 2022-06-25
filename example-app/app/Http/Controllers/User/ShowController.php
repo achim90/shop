@@ -1,15 +1,16 @@
 <?php
 
-namespace App\Http\Controllers\Admin\Product;
+namespace App\Http\Controllers\User;
 
 use App\Http\Controllers\Controller;
 use App\Models\Category;
 use App\Models\Product;
+use App\Models\User;
 
 class ShowController extends Controller
 {
-    public function __invoke(Product $product)
+    public function __invoke(User $user)
     {
-        return view('product.show', compact('product'));
+        return view('user.show', compact('user'));
     }
 }

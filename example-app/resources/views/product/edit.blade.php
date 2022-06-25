@@ -23,24 +23,46 @@
         <div class="container-fluid">
             <!-- Small boxes (Stat box) -->
             <div class="row">
-                <form action="{{route('category.update', $category->id)}}" method="post">
+                <form action="{{route('product.update', $product->id)}}" method="post">
                     @csrf
                     @method('patch')
                     <div class="form-group">
-                        <input type="text" name="title" value="{{ $category->title }}" class="form-control"
+                        <input type="text" name="title" value="{{ $product->title }}" class="form-control"
+                               placeholder="наименование">
+                    </div>
+                    <div class="form-group">
+                        <input type="text" name="price_in" value="{{ $product->price_in }}" class="form-control"
+                               placeholder="наименование">
+                    </div>
+                    <div class="form-group">
+                        <input type="text" name="percent" value="{{ $product->percent }}" class="form-control"
+                               placeholder="наименование">
+                    </div>
+                    <div class="form-group">
+                        <input type="text" name="unit" value="{{ $product->unit }}" class="form-control"
+                               placeholder="наименование">
+                    </div>
+                    <div class="form-group">
+                        <input type="text" name="amount" value="{{ $product->amount }}" class="form-control"
                                placeholder="наименование">
                     </div>
 
-                    <select class="custom-select" name="parent_id">
-                        @foreach($categoriesParent as $categoryP)
-                            @if($category->parent_id != 0)
-                                <option
-                                    {{$categoryP->id === $category->parent_id ? ' selected' : ''}}
-                                    value="{{ $categoryP->id }}">{{ $categoryP->title }}</option>
-                            @endif
+                    <select class="custom-select" name="category_id">
+                        @foreach($categoriesChild as $categoryCh)
+                            <option
+                                {{$categoryCh->id === $product->category_id ? ' selected' : ''}}
+                                value="{{ $categoryCh->id }}">{{ $categoryCh->title }}</option>
                         @endforeach
                     </select>
-<p></p>
+                    <p></p>
+                    <select class="custom-select" name="brand_id">
+                        @foreach($brands as $brand)
+                            <option
+                                {{$brand->id === $product->brand_id ? ' selected' : ''}}
+                                value="{{ $brand->id }}">{{ $brand->title }}</option>
+                        @endforeach
+                    </select>
+                    <p></p>
                     <div class="form-group">
                         <input type="submit" class="btn btn-block bg-gradient-warning btn-sm" value="Редоктировать">
                     </div>

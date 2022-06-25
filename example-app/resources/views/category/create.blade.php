@@ -28,7 +28,7 @@
                     @csrf
 
                     <div class="form-group">
-                        <input type="text" name="title" class="form-control" placeholder="наименование">
+                        <input type="text" value="{{ old('title') }}" name="title" class="form-control" placeholder="наименование">
                     </div>
 
                     <select class="custom-select" name="parent_id">
