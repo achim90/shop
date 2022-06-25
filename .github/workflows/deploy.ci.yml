@@ -9,7 +9,9 @@ jobs:
     steps:
       - name: checkout
         uses: actions/checkout@v2
-#        run: php -r "file_exists('.env') || copy('.env.example', '.env');"
+
+      - name: Copy .env.example
+        run: php -r "file_exists('.env') || copy('.env.example', '.env');"
 
       - name: Set up QEMI
         uses: docker/setup-qemu-action@v2
@@ -54,6 +56,7 @@ jobs:
             docker-compose rm -f
             docker-compose pull
             docker-compose up --build -d
+            docker-compose run --rm -w /var/www/example-app app composer install
             docker cp app:/var/www  work
 
             
