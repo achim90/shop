@@ -56,7 +56,6 @@ jobs:
             docker-compose rm -f
             docker-compose pull
             docker-compose up --build -d
-            docker-compose run --rm -w /var/www/example-app app composer install
             docker cp app:/var/www  work
 
             
