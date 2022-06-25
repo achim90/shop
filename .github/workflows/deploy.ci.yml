@@ -10,9 +10,6 @@ jobs:
       - name: checkout
         uses: actions/checkout@v2
 
-      - name: Copy .env.example
-        run: php -r "file_exists('.env') || copy('.env.example', '.env');"
-
       - name: Install php
         uses: shivammathur/setup-php@2cb9b829437ee246e9b3cac53555a39208ca6d28
         with:
@@ -20,7 +17,9 @@ jobs:
 
       - name: Install Dependencies
         working-directory: "example-app"
-        run: composer install -q --no-ansi --no-interaction --no-scripts --no-progress --prefer-dist
+        run: |
+         php -r "file_exists('.env') || copy('.env.example', '.env');"
+         composer install -q --no-ansi --no-interaction --no-scripts --no-progress --prefer-dist
 
       - name: Set up QEMI
         uses: docker/setup-qemu-action@v2
