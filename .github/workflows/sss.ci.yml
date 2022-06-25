@@ -2,7 +2,7 @@ name: Tests
 on: [push]
 
 jobs:
-  symfony-tests:
+  unit-tests:
     runs-on: ubuntu-20.04
     steps:
       #  To automatically get bug fixes and new Php versions for shivammathur/setup-php,

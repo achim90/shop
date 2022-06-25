@@ -34,30 +34,31 @@
                         <div class="dt-buttons btn-group flex-wrap">
 
                             <button class="btn btn-secondary buttons-copy buttons-html5" tabindex="0"
-                                    aria-controls="example1" type="button"><span><a href="{{ route('product.create') }}" >Добавить</a></span></button>
-                            <button class="btn btn-secondary buttons-csv buttons-html5" tabindex="0"
-                                    aria-controls="example1" type="button"><span>CSV</span></button>
-                            <button class="btn btn-secondary buttons-excel buttons-html5" tabindex="0"
-                                    aria-controls="example1" type="button"><span>Excel</span></button>
-                            <button class="btn btn-secondary buttons-pdf buttons-html5" tabindex="0"
-                                    aria-controls="example1" type="button"><span>PDF</span></button>
-                            <button class="btn btn-secondary buttons-print" tabindex="0" aria-controls="example1"
-                                    type="button"><span>Print</span></button>
+                                    aria-controls="example1" type="button"><span><a  class="btn btn-block btn-secondary btn-flat" href="{{ route('product.create') }}">Добавить</a></span></button>
+{{--                            <button class="btn btn-secondary buttons-csv buttons-html5" tabindex="0"--}}
+{{--                                    aria-controls="example1" type="button"><span>CSV</span></button>--}}
+{{--                            <button class="btn btn-secondary buttons-excel buttons-html5" tabindex="0"--}}
+{{--                                    aria-controls="example1" type="button"><span>Excel</span></button>--}}
+{{--                            <button class="btn btn-secondary buttons-pdf buttons-html5" tabindex="0"--}}
+{{--                                    aria-controls="example1" type="button"><span>PDF</span></button>--}}
+{{--                            <button class="btn btn-secondary buttons-print" tabindex="0" aria-controls="example1"--}}
+{{--                                    type="button"><span>Print</span></button>--}}
                             <div class="btn-group">
                                 <button class="btn btn-secondary buttons-collection dropdown-toggle buttons-colvis"
                                         tabindex="0" aria-controls="example1" type="button" aria-haspopup="true"><span>Column visibility</span><span
                                         class="dt-down-arrow"></span></button>
+
                             </div>
                         </div>
                     </div>
-                    <div class="col-sm-12 col-md-6">
-                        <div id="example1_filter" class="dataTables_filter">
-                            <label>Search:<input type="search"
-                                                 class="form-control form-control-sm"
-                                                 placeholder=""
-                                                 aria-controls="example1"></label>
-                        </div>
-                    </div>
+{{--                    <div class="col-sm-12 col-md-6">--}}
+{{--                        <div id="example1_filter" class="dataTables_filter">--}}
+{{--                            <label>Search:<input type="search"--}}
+{{--                                                 class="form-control form-control-sm"--}}
+{{--                                                 placeholder=""--}}
+{{--                                                 aria-controls="example1"></label>--}}
+{{--                        </div>--}}
+{{--                    </div>--}}
                 </div>
                 <div class="row">
                     <div class="col-sm-12">
@@ -67,25 +68,28 @@
                             <tr>
                                 <th class="sorting sorting_asc" tabindex="0" aria-controls="example1" rowspan="1"
                                     colspan="1" aria-sort="ascending"
-                                    aria-label="Rendering engine: activate to sort column descending">id
+                                    aria-label="Rendering engine: activate to sort column descending">номер
                                 </th>
                                 <th class="sorting" tabindex="0" aria-controls="example1" rowspan="1" colspan="1"
-                                    aria-label="Browser: activate to sort column ascending">name
+                                    aria-label="Browser: activate to sort column ascending">Товар
                                 </th>
                                 <th class="sorting" tabindex="0" aria-controls="example1" rowspan="1" colspan="1"
-                                    aria-label="Platform(s): activate to sort column ascending">price in
+                                    aria-label="Platform(s): activate to sort column ascending">Цена закупочная
                                 </th>
                                 <th class="sorting" tabindex="0" aria-controls="example1" rowspan="1" colspan="1"
-                                    aria-label="Engine version: activate to sort column ascending">price_wholesale
+                                    aria-label="Engine version: activate to sort column ascending">Цена ОПТ
                                 </th>
                                 <th class="sorting" tabindex="0" aria-controls="example1" rowspan="1" colspan="1"
-                                    aria-label="CSS grade: activate to sort column ascending">price_out
+                                    aria-label="Engine version: activate to sort column ascending">Наценка %
                                 </th>
                                 <th class="sorting" tabindex="0" aria-controls="example1" rowspan="1" colspan="1"
-                                    aria-label="CSS grade: activate to sort column ascending">unit
+                                    aria-label="CSS grade: activate to sort column ascending">Цена розница
                                 </th>
                                 <th class="sorting" tabindex="0" aria-controls="example1" rowspan="1" colspan="1"
-                                    aria-label="CSS grade: activate to sort column ascending">amount
+                                    aria-label="CSS grade: activate to sort column ascending">Ед. измерения
+                                </th>
+                                <th class="sorting" tabindex="0" aria-controls="example1" rowspan="1" colspan="1"
+                                    aria-label="CSS grade: activate to sort column ascending">Остаток
                                 </th>
                                 <th class="sorting" tabindex="0" aria-controls="example1" rowspan="1" colspan="1"
                                     aria-label="CSS grade: activate to sort column ascending">category_id
@@ -109,6 +113,7 @@
                                     <td class="dtr-control sorting_1" tabindex="0">{{ $product->id }}</td>
                                     <td>{{ $product->title}}</td>
                                     <td>{{ $product->price_in }}</td>
+                                    <td>{{ $product->percent }}</td>
                                     <td>{{ $product->price_wholesale }}</td>
                                     <td>{{ $product->price_out }}</td>
                                     <td>{{ $product->unit }}</td>
@@ -117,6 +122,9 @@
                                     <td>{{ $product->brand_id }}</td>
                                     <td>{{ $product->created_at }}</td>
                                     <td>{{ $product->updated_at }}</td>
+                                    <td>
+                                        <a class=" btn-block btn-outline-info btn-xs" href="{{ route('product.show', $product->id) }}">Редоктировать</a>
+                                    </td>
                                 </tr>
                             @endforeach
 
@@ -130,39 +138,39 @@
                             of 57 entries
                         </div>
                     </div>
-                    <div class="col-sm-12 col-md-7">
-                        <div class="dataTables_paginate paging_simple_numbers" id="example1_paginate">
-                            <ul class="pagination">
-                                <li class="paginate_button page-item previous disabled" id="example1_previous"><a
-                                        href="#" aria-controls="example1" data-dt-idx="0" tabindex="0"
-                                        class="page-link">Previous</a></li>
-                                <li class="paginate_button page-item active"><a href="#" aria-controls="example1"
-                                                                                data-dt-idx="1" tabindex="0"
-                                                                                class="page-link">1</a></li>
-                                <li class="paginate_button page-item "><a href="#" aria-controls="example1"
-                                                                          data-dt-idx="2" tabindex="0"
-                                                                          class="page-link">2</a></li>
-                                <li class="paginate_button page-item "><a href="#" aria-controls="example1"
-                                                                          data-dt-idx="3" tabindex="0"
-                                                                          class="page-link">3</a></li>
-                                <li class="paginate_button page-item "><a href="#" aria-controls="example1"
-                                                                          data-dt-idx="4" tabindex="0"
-                                                                          class="page-link">4</a></li>
-                                <li class="paginate_button page-item "><a href="#" aria-controls="example1"
-                                                                          data-dt-idx="5" tabindex="0"
-                                                                          class="page-link">5</a></li>
-                                <li class="paginate_button page-item "><a href="#" aria-controls="example1"
-                                                                          data-dt-idx="6" tabindex="0"
-                                                                          class="page-link">6</a></li>
-                                <li class="paginate_button page-item next" id="example1_next"><a href="#"
-                                                                                                 aria-controls="example1"
-                                                                                                 data-dt-idx="7"
-                                                                                                 tabindex="0"
-                                                                                                 class="page-link">Next</a>
-                                </li>
-                            </ul>
-                        </div>
-                    </div>
+{{--                    <div class="col-sm-12 col-md-7">--}}
+{{--                        <div class="dataTables_paginate paging_simple_numbers" id="example1_paginate">--}}
+{{--                            <ul class="pagination">--}}
+{{--                                <li class="paginate_button page-item previous disabled" id="example1_previous"><a--}}
+{{--                                        href="#" aria-controls="example1" data-dt-idx="0" tabindex="0"--}}
+{{--                                        class="page-link">Previous</a></li>--}}
+{{--                                <li class="paginate_button page-item active"><a href="#" aria-controls="example1"--}}
+{{--                                                                                data-dt-idx="1" tabindex="0"--}}
+{{--                                                                                class="page-link">1</a></li>--}}
+{{--                                <li class="paginate_button page-item "><a href="#" aria-controls="example1"--}}
+{{--                                                                          data-dt-idx="2" tabindex="0"--}}
+{{--                                                                          class="page-link">2</a></li>--}}
+{{--                                <li class="paginate_button page-item "><a href="#" aria-controls="example1"--}}
+{{--                                                                          data-dt-idx="3" tabindex="0"--}}
+{{--                                                                          class="page-link">3</a></li>--}}
+{{--                                <li class="paginate_button page-item "><a href="#" aria-controls="example1"--}}
+{{--                                                                          data-dt-idx="4" tabindex="0"--}}
+{{--                                                                          class="page-link">4</a></li>--}}
+{{--                                <li class="paginate_button page-item "><a href="#" aria-controls="example1"--}}
+{{--                                                                          data-dt-idx="5" tabindex="0"--}}
+{{--                                                                          class="page-link">5</a></li>--}}
+{{--                                <li class="paginate_button page-item "><a href="#" aria-controls="example1"--}}
+{{--                                                                          data-dt-idx="6" tabindex="0"--}}
+{{--                                                                          class="page-link">6</a></li>--}}
+{{--                                <li class="paginate_button page-item next" id="example1_next"><a href="#"--}}
+{{--                                                                                                 aria-controls="example1"--}}
+{{--                                                                                                 data-dt-idx="7"--}}
+{{--                                                                                                 tabindex="0"--}}
+{{--                                                                                                 class="page-link">Next</a>--}}
+{{--                                </li>--}}
+{{--                            </ul>--}}
+{{--                        </div>--}}
+{{--                    </div>--}}
                 </div>
             </div>
         </div>

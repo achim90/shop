@@ -28,34 +28,41 @@
                     @csrf
 
                     <div class="form-group">
-                        <input type="text" name="title" class="form-control" placeholder="наименование">
+                        <input type="text" value="{{ old('title') }}" name="title" class="form-control" placeholder="наименование">
                     </div>
                     <div class="form-group">
-                        <input type="text" name="price_in" class="form-control" placeholder="входящая цена">
+                        <input type="text" value="{{ old('price_in') }}" name="price_in" class="form-control" placeholder="входящая цена">
                     </div>
                     <div class="form-group">
-                        <input type="text" name="percent" class="form-control" placeholder="процент наценки">
+                        <input type="text" value="{{ old('percent') }}" name="percent" class="form-control" placeholder="процент наценки">
                     </div>
+{{--                    <div class="form-group">--}}
+{{--                        <input type="text" value="{{ old('price_wholesale') }}" name="price_wholesale" class="form-control" placeholder="цена опт">--}}
+{{--                    </div>--}}
+{{--                    <div class="form-group">--}}
+{{--                        <input type="text" value="{{ old('price_out') }}" name="price_out" class="form-control" placeholder="цена в розницу">--}}
+{{--                    </div>--}}
                     <div class="form-group">
-                        <input type="text" name="unit" class="form-control" placeholder="единица измерения">
+                        <input type="text" value="{{ old('unit') }}" name="unit" class="form-control" placeholder="единица измерения">
                     </div>
+
                     <div class="form-group">
-                        <input type="text" name="amount" class="form-control" placeholder="количество">
+                        <input type="text" value="{{ old('amount') }}" name="amount" class="form-control" placeholder="количество">
                     </div>
 
                     <select class="custom-select" name="category_id">
                         @foreach($categoriesChild as $categoryCh)
-                        <option value="{{ $categoryCh->id }}">{{ $categoryCh->title }}</option>
+                            <option value="{{ $categoryCh->id }}">{{ $categoryCh->title }}</option>
                         @endforeach
                     </select>
-                    <select class="custom-select mt-3" name="product_id">
+                    <select class="custom-select mt-3" name="brand_id">
                         @foreach($brands as $brand)
-                        <option value="{{ $brand->id }}">{{ $brand->title }}</option>
+                            <option value="{{ $brand->id }}">{{ $brand->title }}</option>
                         @endforeach
                     </select>
 
                     <div class="form-group">
-                        <input type="submit"  class="btn  btn-info btn-sm mt-2" value="добавить">
+                        <input type="submit" class="btn  btn-info btn-sm mt-2" value="добавить">
                     </div>
 
                 </form>

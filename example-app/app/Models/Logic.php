@@ -5,14 +5,15 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class Brand extends Model
+class Logic extends Model
 {
     use HasFactory;
-    protected $table = 'brands';
+    protected $table = 'categories';
     protected $guarded = false;
 
-    public function product()
-    {
-        return $this->hasMany(Product::class, 'brand_id', 'id');
-    }
+//    public function percent()
+//    {
+//        $this
+//    }
+
 }
