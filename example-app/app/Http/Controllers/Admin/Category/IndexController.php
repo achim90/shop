@@ -9,8 +9,8 @@ class IndexController extends Controller
 {
     public function __invoke()
     {
-        $categoriesParent = Category::where('parent_id', '=', 0)->get();
-        $categoriesChild = Category::where('parent_id', '!=', 0)->get();
+        $categoriesParent = Category::where('parent_id', '=', null)->get();
+        $categoriesChild = Category::where('parent_id', '!=', null)->get();
 //        $categories = Category::with('children')->get();
         return view('category.index', compact('categoriesParent', 'categoriesChild'));
 

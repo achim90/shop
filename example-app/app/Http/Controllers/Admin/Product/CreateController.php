@@ -11,7 +11,7 @@ class CreateController extends Controller
     public function __invoke()
     {
         $brands = Brand::all();
-        $categoriesChild = Category::where('parent_id', '!=', 0 )->get();
+        $categoriesChild = Category::where('parent_id', '!=', null )->get();
 
         return view('product.create', compact( 'categoriesChild', 'brands'));
     }

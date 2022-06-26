@@ -47,7 +47,7 @@
                         <td>{{ $category->title }}</td>
                         <td>{{ $category->updated_at }}</td>
                         <td>
-                            @if($category->parent_id != 0)
+                            @if($category->parent_id != null)
                                 {{$category->parent->title}}
                             @endif
                         </td>

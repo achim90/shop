@@ -10,6 +10,7 @@ class Category extends Model
     protected $table = 'categories';
     protected $guarded = false;
 
+
     public function rootCategory()
     {
         return $this->where('parent_id', null)->with('children')->get();
@@ -29,5 +30,7 @@ class Category extends Model
     {
         return $this->hasMany(Product::class, 'category_id', 'id');
     }
+
+
 
 }
