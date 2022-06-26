@@ -6,7 +6,7 @@
         <div class="container-fluid">
             <div class="row mb-2">
                 <div class="col-sm-6">
-                    <h1 class="m-0">Категории</h1>
+                    <h1 class="m-0">Продукты</h1>
                 </div><!-- /.col -->
                 <div class="col-sm-6">
                     <ol class="breadcrumb float-sm-right">
@@ -21,42 +21,41 @@
 
 
 
-
     <div class="card">
+{{--        <div class="card-header">--}}
+{{--            <h3 class="card-title">DataTable with default features</h3>--}}
+{{--        </div>--}}
         <div class="card-header">
-            <h3 class="card-title">DataTable with default features</h3>
+            <a href="{{ route('product.create') }}" class="btn  btn-info btn-sm">Добавить</a>
         </div>
-
+        <!-- /.card-header -->
         <div class="card-body">
             <div id="example1_wrapper" class="dataTables_wrapper dt-bootstrap4">
                 <div class="row">
-                    <div class="col-sm-12 col-md-6">
-                        <div class="dt-buttons btn-group flex-wrap">
-
-                            <button class="btn btn-secondary buttons-copy buttons-html5" tabindex="0"
-                                    aria-controls="example1" type="button"><span><a  class="btn btn-block btn-secondary btn-flat" href="{{ route('product.create') }}">Добавить</a></span></button>
+{{--                    <div class="col-sm-12 col-md-6">--}}
+{{--                        <div class="dt-buttons btn-group flex-wrap">--}}
+{{--                            <button class="btn btn-secondary buttons-copy buttons-html5" tabindex="0"--}}
+{{--                                    aria-controls="example1" type="button"><span>Copy</span></button>--}}
 {{--                            <button class="btn btn-secondary buttons-csv buttons-html5" tabindex="0"--}}
 {{--                                    aria-controls="example1" type="button"><span>CSV</span></button>--}}
 {{--                            <button class="btn btn-secondary buttons-excel buttons-html5" tabindex="0"--}}
 {{--                                    aria-controls="example1" type="button"><span>Excel</span></button>--}}
 {{--                            <button class="btn btn-secondary buttons-pdf buttons-html5" tabindex="0"--}}
-{{--                                    aria-controls="example1" type="button"><span>PDF</span></button>--}}
+{{--                                    aria-controls="#example1" type="button"><span>PDF</span></button>--}}
 {{--                            <button class="btn btn-secondary buttons-print" tabindex="0" aria-controls="example1"--}}
 {{--                                    type="button"><span>Print</span></button>--}}
-                            <div class="btn-group">
-                                <button class="btn btn-secondary buttons-collection dropdown-toggle buttons-colvis"
-                                        tabindex="0" aria-controls="example1" type="button" aria-haspopup="true"><span>Column visibility</span><span
-                                        class="dt-down-arrow"></span></button>
-
-                            </div>
-                        </div>
-                    </div>
+{{--                            <div class="btn-group">--}}
+{{--                                <button class="btn btn-secondary buttons-collection dropdown-toggle buttons-colvis"--}}
+{{--                                        tabindex="0" aria-controls="example1" type="button" aria-haspopup="true"><span>Column visibility</span><span--}}
+{{--                                        class="dt-down-arrow"></span></button>--}}
+{{--                            </div>--}}
+{{--                        </div>--}}
+{{--                    </div>--}}
 {{--                    <div class="col-sm-12 col-md-6">--}}
-{{--                        <div id="example1_filter" class="dataTables_filter">--}}
-{{--                            <label>Search:<input type="search"--}}
-{{--                                                 class="form-control form-control-sm"--}}
-{{--                                                 placeholder=""--}}
-{{--                                                 aria-controls="example1"></label>--}}
+{{--                        <div id="example1_filter" class="dataTables_filter"><label>Search:<input type="search"--}}
+{{--                                                                                                 class="form-control form-control-sm"--}}
+{{--                                                                                                 placeholder=""--}}
+{{--                                                                                                 aria-controls="example1"></label>--}}
 {{--                        </div>--}}
 {{--                    </div>--}}
                 </div>
@@ -76,11 +75,12 @@
                                 <th class="sorting" tabindex="0" aria-controls="example1" rowspan="1" colspan="1"
                                     aria-label="Platform(s): activate to sort column ascending">Цена закупочная
                                 </th>
-                                <th class="sorting" tabindex="0" aria-controls="example1" rowspan="1" colspan="1"
-                                    aria-label="Engine version: activate to sort column ascending">Цена ОПТ
-                                </th>
+
                                 <th class="sorting" tabindex="0" aria-controls="example1" rowspan="1" colspan="1"
                                     aria-label="Engine version: activate to sort column ascending">Наценка %
+                                </th>
+                                <th class="sorting" tabindex="0" aria-controls="example1" rowspan="1" colspan="1"
+                                    aria-label="Engine version: activate to sort column ascending">Цена ОПТ
                                 </th>
                                 <th class="sorting" tabindex="0" aria-controls="example1" rowspan="1" colspan="1"
                                     aria-label="CSS grade: activate to sort column ascending">Цена розница
@@ -92,16 +92,16 @@
                                     aria-label="CSS grade: activate to sort column ascending">Остаток
                                 </th>
                                 <th class="sorting" tabindex="0" aria-controls="example1" rowspan="1" colspan="1"
-                                    aria-label="CSS grade: activate to sort column ascending">category_id
+                                    aria-label="CSS grade: activate to sort column ascending">Категория
                                 </th>
                                 <th class="sorting" tabindex="0" aria-controls="example1" rowspan="1" colspan="1"
-                                    aria-label="CSS grade: activate to sort column ascending">brand_id
+                                    aria-label="CSS grade: activate to sort column ascending">Бренд
                                 </th>
                                 <th class="sorting" tabindex="0" aria-controls="example1" rowspan="1" colspan="1"
-                                    aria-label="CSS grade: activate to sort column ascending">created_at
+                                    aria-label="CSS grade: activate to sort column ascending">Дата создания
                                 </th>
                                 <th class="sorting" tabindex="0" aria-controls="example1" rowspan="1" colspan="1"
-                                    aria-label="CSS grade: activate to sort column ascending">Updated_at
+                                    aria-label="CSS grade: activate to sort column ascending">Дата обновления
                                 </th>
 
                             </tr>
@@ -114,8 +114,8 @@
                                     <td>{{ $product->title}}</td>
                                     <td>{{ $product->price_in }}</td>
                                     <td>{{ $product->percent }}</td>
-                                    <td>{{ $product->price_wholesale }}</td>
-                                    <td>{{ $product->price_out }}</td>
+                                    <td>{{  $product->price_in + ($product->price_in * ($product->percent-4) / 100)}}</td>
+                                    <td>{{ $product->price_in + ($product->price_in * $product->percent / 100)}}</td>
                                     <td>{{ $product->unit }}</td>
                                     <td>{{ $product->amount }}</td>
                                     <td>{{ $product->category_id }}</td>
@@ -174,7 +174,7 @@
                 </div>
             </div>
         </div>
-
+        <!-- /.card-body -->
     </div>
 
 
@@ -183,68 +183,78 @@
 
 
 
-    {{--    <div class="row">--}}
-    {{--        <div class="col-12">--}}
-    {{--            <div class="card">--}}
-    {{--                <div class="card-header">--}}
-    {{--                    <a href="{{ route('category.create') }}" class="btn  btn-info btn-sm">Добавить</a>--}}
-    {{--                </div>--}}
-
-    {{--                <!-- /.card-header -->--}}
-    {{--                <div class="card-body table-responsive p-0">--}}
-    {{--                    <table class="table table-hover">--}}
-    {{--                        <thead>--}}
-    {{--                        <tr>--}}
-    {{--                            <th>Категории</th>--}}
-    {{--                        </tr>--}}
-    {{--                        </thead>--}}
-    {{--                        <tbody>--}}
-    {{--                        @foreach($categoriesParent as $categoryP)--}}
-    {{--                            <tr data-widget="expandable-table" aria-expanded="false">--}}
-    {{--                                <td>--}}
-    {{--                                    <i class="expandable-table-caret fas fa-caret-right fa-fw"></i>--}}
-    {{--                                    {{ $categoryP->title }}--}}
-    {{--                                </td>--}}
-    {{--                                <td>--}}
-    {{--                                    <a class=" btn-block btn-outline-info btn-xs"--}}
-    {{--                                       href="{{ route('category.show', $categoryP->id) }}">Редоктировать</a>--}}
-    {{--                                </td>--}}
-    {{--                            </tr>--}}
-    {{--                            <tr class="expandable-body d-none">--}}
-    {{--                                <td>--}}
-    {{--                                    <div class="p-0" style="display: none;">--}}
-    {{--                                        <table class="table table-hover">--}}
 
 
-    {{--                                            @foreach($categoriesChild as $categoryCh)--}}
-    {{--                                                <tr>--}}
-    {{--                                                    @if($categoryCh->parent_id === $categoryP->id )--}}
-    {{--                                                        <td>--}}
-    {{--                                                            <a href="{{ route('category.show', $categoryCh->id) }}">{{ $categoryCh->title }}</a>--}}
-    {{--                                                        </td>--}}
-    {{--                                                        <td>--}}
-    {{--                                                            <a class=" btn-block btn-outline-info btn-xs"--}}
-    {{--                                                               href="{{ route('category.show', $categoryCh->id) }}">Редоктировать</a>--}}
-    {{--                                                        </td>--}}
+{{--        <div class="row">--}}
+{{--            <div class="col-sm-12">--}}
+{{--                <table id="example1" class="table table-bordered table-striped dataTable dtr-inline"--}}
+{{--                       aria-describedby="example1_info">--}}
+{{--                    <thead>--}}
+{{--                    <tr>--}}
+{{--                        <th class="sorting sorting_asc" tabindex="0" aria-controls="example1" rowspan="1"--}}
+{{--                            colspan="1" aria-sort="ascending"--}}
+{{--                            aria-label="Rendering engine: activate to sort column descending">номер--}}
+{{--                        </th>--}}
+{{--                        <th class="sorting" tabindex="0" aria-controls="example1" rowspan="1" colspan="1"--}}
+{{--                            aria-label="Browser: activate to sort column ascending">Товар--}}
+{{--                        </th>--}}
+{{--                        <th class="sorting" tabindex="0" aria-controls="example1" rowspan="1" colspan="1"--}}
+{{--                            aria-label="Platform(s): activate to sort column ascending">Цена закупочная--}}
+{{--                        </th>--}}
+{{--                        <th class="sorting" tabindex="0" aria-controls="example1" rowspan="1" colspan="1"--}}
+{{--                            aria-label="Engine version: activate to sort column ascending">Цена ОПТ--}}
+{{--                        </th>--}}
+{{--                        <th class="sorting" tabindex="0" aria-controls="example1" rowspan="1" colspan="1"--}}
+{{--                            aria-label="Engine version: activate to sort column ascending">Наценка %--}}
+{{--                        </th>--}}
+{{--                        <th class="sorting" tabindex="0" aria-controls="example1" rowspan="1" colspan="1"--}}
+{{--                            aria-label="CSS grade: activate to sort column ascending">Цена розница--}}
+{{--                        </th>--}}
+{{--                        <th class="sorting" tabindex="0" aria-controls="example1" rowspan="1" colspan="1"--}}
+{{--                            aria-label="CSS grade: activate to sort column ascending">Ед. измерения--}}
+{{--                        </th>--}}
+{{--                        <th class="sorting" tabindex="0" aria-controls="example1" rowspan="1" colspan="1"--}}
+{{--                            aria-label="CSS grade: activate to sort column ascending">Остаток--}}
+{{--                        </th>--}}
+{{--                        <th class="sorting" tabindex="0" aria-controls="example1" rowspan="1" colspan="1"--}}
+{{--                            aria-label="CSS grade: activate to sort column ascending">category_id--}}
+{{--                        </th>--}}
+{{--                        <th class="sorting" tabindex="0" aria-controls="example1" rowspan="1" colspan="1"--}}
+{{--                            aria-label="CSS grade: activate to sort column ascending">brand_id--}}
+{{--                        </th>--}}
+{{--                        <th class="sorting" tabindex="0" aria-controls="example1" rowspan="1" colspan="1"--}}
+{{--                            aria-label="CSS grade: activate to sort column ascending">created_at--}}
+{{--                        </th>--}}
+{{--                        <th class="sorting" tabindex="0" aria-controls="example1" rowspan="1" colspan="1"--}}
+{{--                            aria-label="CSS grade: activate to sort column ascending">Updated_at--}}
+{{--                        </th>--}}
 
-    {{--                                                    @endif--}}
-    {{--                                                </tr>--}}
-    {{--                                            @endforeach--}}
+{{--                    </tr>--}}
+{{--                    </thead>--}}
+{{--                    <tbody>--}}
+
+{{--                    @foreach($products as $product)--}}
+{{--                        <tr class="odd">--}}
+{{--                            <td class="dtr-control sorting_1" tabindex="0">{{ $product->id }}</td>--}}
+{{--                            <td>{{ $product->title}}</td>--}}
+{{--                            <td>{{ $product->price_in }}</td>--}}
+{{--                            <td>{{ $product->percent }}</td>--}}
+{{--                            <td>{{ $product->price_wholesale }}</td>--}}
+{{--                            <td>{{ $product->price_out }}</td>--}}
+{{--                            <td>{{ $product->unit }}</td>--}}
+{{--                            <td>{{ $product->amount }}</td>--}}
+{{--                            <td>{{ $product->category_id }}</td>--}}
+{{--                            <td>{{ $product->brand_id }}</td>--}}
+{{--                            <td>{{ $product->created_at }}</td>--}}
+{{--                            <td>{{ $product->updated_at }}</td>--}}
+{{--                            <td>--}}
+{{--                                <a class=" btn-block btn-outline-info btn-xs" href="{{ route('product.show', $product->id) }}">Редоктировать</a>--}}
+{{--                            </td>--}}
+{{--                        </tr>--}}
+{{--                    @endforeach--}}
 
 
-    {{--                                        </table>--}}
-    {{--                                    </div>--}}
-    {{--                                </td>--}}
-    {{--                            </tr>--}}
-
-    {{--                        @endforeach--}}
-    {{--                        </tbody>--}}
-    {{--                    </table>--}}
-    {{--                </div>--}}
-    {{--                <!-- /.card-body -->--}}
-    {{--            </div>--}}
-    {{--            <!-- /.card -->--}}
-    {{--        </div>--}}
-    {{--    </div>--}}
-
+{{--                </table>--}}
+{{--            </div>--}}
+{{--        </div>--}}
 @endsection

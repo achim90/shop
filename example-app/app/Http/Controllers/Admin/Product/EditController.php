@@ -11,7 +11,7 @@ class EditController extends Controller
 {
     public function __invoke(Product $product)
     {
-        $categoriesChild = Category::where('parent_id', '!=', 0)->get();
+        $categoriesChild = Category::where('parent_id', '!=', null)->get();
         $brands = Brand::all();
         return view('product.edit', compact('product', 'categoriesChild', 'brands'));
     }

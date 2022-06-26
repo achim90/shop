@@ -33,7 +33,7 @@
 
                     <select class="custom-select" name="parent_id">
                         @foreach($categoriesParent as $categoryP)
-                            @if($category->parent_id != 0)
+                            @if($category->parent_id != null)
                                 <option
                                     {{$categoryP->id === $category->parent_id ? ' selected' : ''}}
                                     value="{{ $categoryP->id }}">{{ $categoryP->title }}</option>

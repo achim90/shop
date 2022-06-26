@@ -28,17 +28,20 @@
                     @csrf
 
                     <div class="form-group">
-                        <input type="text" value="{{ old('title') }}" name="title" class="form-control" placeholder="наименование">
+                        <input type="text" value="{{ old('title') }}" name="title" class="form-control"
+                               placeholder="наименование">
                     </div>
 
                     <select class="custom-select" name="parent_id">
+                        <option value="{{ '' }}">Главная категория</option>
                         @foreach($categoriesParent as $categoryP)
-                        <option value="{{ $categoryP->id }}">{{ $categoryP->title }}</option>
+                            <option value="{{ $categoryP->id }}">{{ $categoryP->title }}</option>
                         @endforeach
+
                     </select>
 
                     <div class="form-group">
-                        <input type="submit"  class="btn  btn-info btn-sm mt-2" value="добавить">
+                        <input type="submit" class="btn  btn-info btn-sm mt-2" value="добавить">
                     </div>
 
                 </form>
