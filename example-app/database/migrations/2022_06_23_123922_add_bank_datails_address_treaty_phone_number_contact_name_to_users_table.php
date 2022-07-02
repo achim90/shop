@@ -17,7 +17,7 @@ return new class extends Migration
             $table->string('bank_details')->nullable();
             $table->string('address')->nullable();
             $table->integer('treaty')->nullable();
-            $table->bigInteger('phone_number')->nullable();
+            $table->string('phone_number')->nullable();
             $table->string('contact_name')->nullable();
         });
     }
@@ -34,7 +34,7 @@ return new class extends Migration
             $table->dropColumn('address');
             $table->dropColumn('treaty');
             $table->dropColumn('phone_number');
-            $table->dropColumn('contact name');
+            $table->dropColumn('contact_name');
         });
     }
 };

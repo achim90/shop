@@ -29,8 +29,7 @@ class StoreRequest extends FormRequest
             'percent' => '',
             'unit' => '',
             'amount' => '',
-//            'price_wholesale' => '',
-//            'price_out' => '',
+
             'category_id' => '',
             'brand_id' => '',
         ];

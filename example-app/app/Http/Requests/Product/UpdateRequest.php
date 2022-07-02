@@ -24,7 +24,14 @@ class UpdateRequest extends FormRequest
     public function rules()
     {
         return [
-            //
+            'title' => 'required|string',
+            'price_in' => '',
+            'percent' => '',
+            'unit' => '',
+            'amount' => '',
+
+            'category_id' => '',
+            'brand_id' => '',
         ];
     }
 }

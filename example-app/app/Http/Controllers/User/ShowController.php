@@ -3,8 +3,6 @@
 namespace App\Http\Controllers\User;
 
 use App\Http\Controllers\Controller;
-use App\Models\Category;
-use App\Models\Product;
 use App\Models\User;
 
 class ShowController extends Controller
