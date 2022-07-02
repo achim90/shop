@@ -13,10 +13,11 @@ use Illuminate\Support\Facades\Route;
 |
 */
 //
+//Route::get('/home', 'App\Http\Controllers\HomeController@index')->name('index');
 Route::get('/', function () {
     return view('main.index');
 })->name('layouts.main');
-//Route::get('/', \App\Http\Controllers\Controller::class)->name('layouts.main');
+
 
 Route::group(['prefix' => 'admin'], function () {
     Route::group(['prefix' => 'categories'], function () {
@@ -30,14 +31,16 @@ Route::group(['prefix' => 'admin'], function () {
     });
     Route::group(['prefix' => 'products'], function () {
         Route::get('/', \App\Http\Controllers\Admin\Product\IndexController::class)->name('product.index');
+        Route::post('/', \App\Http\Controllers\Admin\Product\IndexController::class)->name('product.filter');
         Route::get('/create', \App\Http\Controllers\Admin\Product\CreateController::class)->name('product.create');
-        Route::post('/', \App\Http\Controllers\Admin\Product\StoreController::class)->name('product.store');
+        Route::post('/store', \App\Http\Controllers\Admin\Product\StoreController::class)->name('product.store');
         Route::get('/{product}', \App\Http\Controllers\Admin\Product\ShowController::class)->name('product.show');
         Route::get('/{product}/edit', \App\Http\Controllers\Admin\Product\EditController::class)->name('product.edit');
         Route::patch('/{product}', \App\Http\Controllers\Admin\Product\UpdateController::class)->name('product.update');
         Route::delete('/{product}', \App\Http\Controllers\Admin\Product\DeleteController::class)->name('product.delete');
     });
 });
+//CUSTOMER ROUTES
 //Route::group(['prefix' => 'customers'], function () {
 //    Route::get('/', \App\Http\Controllers\Customer\IndexController::class)->name('customer.index');
 //    Route::get('/create', \App\Http\Controllers\Customer\CreateController::class)->name('customer.create');
@@ -46,7 +49,8 @@ Route::group(['prefix' => 'admin'], function () {
 //    Route::get('/{customer}/edit', \App\Http\Controllers\Customer\EditController::class)->name('customer.edit');
 //    Route::patch('/{customer}', \App\Http\Controllers\Customer\UpdateController::class)->name('customer.update');
 //    Route::delete('/{customer}', \App\Http\Controllers\Customer\DeleteController::class)->name('customer.delete');
-//});
+//})ghghCCACAewdafeaef
+
 Route::group(['prefix' => 'users'], function () {
     Route::get('/', \App\Http\Controllers\User\IndexController::class)->name('user.index');
     Route::get('/create', \App\Http\Controllers\User\CreateController::class)->name('user.create');

@@ -4,8 +4,7 @@ namespace App\Http\Controllers\Admin\Product;
 
 use App\Http\Controllers\Controller;
 use App\Http\Requests\Product\StoreRequest;
-
-use App\Models\Product;
+use App\Models\Product\Product;
 
 
 class StoreController extends Controller

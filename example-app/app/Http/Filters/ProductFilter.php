@@ -6,10 +6,10 @@ namespace App\Http\Filters;
 
 use Illuminate\Database\Eloquent\Builder;
 
-class PostFilter extends AbstractFilter
+class ProductFilter extends AbstractFilter
 {
     public const TITLE = 'title';
-    public const CONTENT = 'content';
+//    public const CONTENT = 'content';
     public const CATEGORY_ID = 'category_id';
 
 
@@ -17,7 +17,7 @@ class PostFilter extends AbstractFilter
     {
         return [
             self::TITLE => [$this, 'title'],
-            self::CONTENT => [$this, 'content'],
+//            self::CONTENT => [$this, 'content'],
             self::CATEGORY_ID => [$this, 'categoryId'],
         ];
     }
@@ -27,11 +27,11 @@ class PostFilter extends AbstractFilter
         $builder->where('title', 'like', "%{$value}%");
     }
 
-    public function content(Builder $builder, $value)
-    {
-        $builder->where('content', 'like', "%{$value}%");
-    }
-
+//    public function content(Builder $builder, $value)
+//    {
+//        $builder->where('content', 'like', "%{$value}%");
+//    }
+//
     public function categoryId(Builder $builder, $value)
     {
         $builder->where('category_id', $value);

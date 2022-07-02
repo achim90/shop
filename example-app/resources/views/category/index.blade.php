@@ -10,7 +10,7 @@
                 </div><!-- /.col -->
                 <div class="col-sm-6">
                     <ol class="breadcrumb float-sm-right">
-                        <a href="{{ route('layouts.main') }}" class="breadcrumb-item active">Гвлавная</a>
+                        <a href="{{ route('layouts.main') }}" class="breadcrumb-item active">Главная</a>
                     </ol>
                 </div><!-- /.col -->
             </div><!-- /.row -->
@@ -58,7 +58,7 @@
                                                             <a href="{{ route('category.show', $categoryCh->id) }}">{{ $categoryCh->title }}</a>
                                                         </td>
                                                         <td>
-                                                            <a class=" btn-block btn-outline-info btn-xs" href="{{ route('category.show', $categoryCh->id) }}">Редоктировать</a>
+                                                            <a class=" btn-block btn-outline-info btn-xs" href="{{ route('category.show', $categoryCh->id) }}">Редактировать</a>
                                                         </td>
 
                                                     @endif

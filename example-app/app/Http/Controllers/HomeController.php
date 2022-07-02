@@ -3,11 +3,12 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use Illuminate\Pagination\Paginator;
 
 class HomeController extends Controller
 {
-    public function __invoke()
+    public function index()
     {
-        return 'hello world';
+        return view('product.index');
     }
 }

@@ -1,21 +1,14 @@
 <?php
-
+declare(strict_types=1);
 
 namespace App\Http\Filters;
-
 
 use Illuminate\Database\Eloquent\Builder;
 
 abstract class AbstractFilter implements FilterInterface
 {
-    /** @var array */
-    private $queryParams = [];
+    private array $queryParams = [];
 
-    /**
-     * AbstractFilter constructor.
-     *
-     * @param array $queryParams
-     */
     public function __construct(array $queryParams)
     {
         $this->queryParams = $queryParams;
@@ -41,23 +34,12 @@ abstract class AbstractFilter implements FilterInterface
     {
     }
 
-    /**
-     * @param string $key
-     * @param mixed|null $default
-     *
-     * @return mixed|null
-     */
-    protected function getQueryParam(string $key, $default = null)
+    protected function getQueryParam(string $key, mixed $default = null): mixed
     {
         return $this->queryParams[$key] ?? $default;
     }
 
-    /**
-     * @param string[] $keys
-     *
-     * @return AbstractFilter
-     */
-    protected function removeQueryParam(string ...$keys)
+    protected function removeQueryParam(string ...$keys): static
     {
         foreach ($keys as $key) {
             unset($this->queryParams[$key]);

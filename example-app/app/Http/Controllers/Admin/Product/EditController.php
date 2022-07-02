@@ -5,7 +5,7 @@ namespace App\Http\Controllers\Admin\Product;
 use App\Http\Controllers\Controller;
 use App\Models\Brand;
 use App\Models\Category;
-use App\Models\Product;
+use App\Models\Product\Product;
 
 class EditController extends Controller
 {
