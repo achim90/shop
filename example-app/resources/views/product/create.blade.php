@@ -50,6 +50,10 @@
                         <input type="text" value="{{ old('amount') }}" name="amount" class="form-control" placeholder="количество">
                     </div>
 
+                    <div class="form-group">
+                        <input type="text" value="{{ old('barcode') }}" name="barcode" class="form-control" placeholder="штрихкод">
+                    </div>
+
                     <select class="custom-select" name="category_id">
                         @foreach($categoriesChild as $categoryCh)
                             <option value="{{ $categoryCh->id }}">{{ $categoryCh->title }}</option>

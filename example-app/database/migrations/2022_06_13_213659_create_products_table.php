@@ -16,8 +16,11 @@ return new class extends Migration
         Schema::create('products', function (Blueprint $table) {
             $table->id();
             $table->string('title');
+            $table->bigInteger('barcode');
+
             $table->integer('price_in');
             $table->integer('percent');
+
 
             $table->string('unit');
             $table->integer('amount');

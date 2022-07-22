@@ -13,7 +13,8 @@ use Illuminate\Support\Facades\Route;
 |
 */
 //
-//Route::get('/home', 'App\Http\Controllers\HomeController@index')->name('index');
+Route::get('/home', 'App\Http\Controllers\HomeController@setPet')->name('setPet');
+
 Route::get('/', function () {
     return view('main.index');
 })->name('layouts.main');
@@ -31,6 +32,7 @@ Route::group(['prefix' => 'admin'], function () {
     });
     Route::group(['prefix' => 'products'], function () {
         Route::get('/', \App\Http\Controllers\Admin\Product\IndexController::class)->name('product.index');
+        Route::get('/google_sheet', \App\Http\Controllers\Admin\Product\GoogleSheetsController::class)->name('sheet.index');
         Route::post('/', \App\Http\Controllers\Admin\Product\IndexController::class)->name('product.filter');
         Route::get('/create', \App\Http\Controllers\Admin\Product\CreateController::class)->name('product.create');
         Route::post('/store', \App\Http\Controllers\Admin\Product\StoreController::class)->name('product.store');

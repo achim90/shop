@@ -20,6 +20,7 @@ class ProductFactory extends Factory
     {
         return [
             'title' => $this->faker->text(20),
+            'barcode' => random_int(10000000,999999999999),
             'price_in' => random_int(100,5000),
             'percent' => random_int(1,100),
             'unit' => $this->faker->word(4),
